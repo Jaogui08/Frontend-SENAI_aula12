@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.botao{
+    background-color: blueviolet;
+    padding: 10px;
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+.botao:hover{
+    background-color: rgb(179, 109, 244);
+    transform: scale(1.05);
+}
+.carregando{
+    width: 100px;
+    height: 100px;
+    border: 5px aqua solid;
+    border-top-color: black;
+    background-color: aqua;
+    border-radius: 50px;
+    animation: carregando 0.5s linear infinite;
+}
+@keyframes carregando{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+
+.personagem{
+    width: calc(1248px / 6);
+    height: 208px;
+    background-image: url(../img/personagem.png);
+    animation: andar 390ms steps(6) infinite;
+    filter: drop-shadow(20px 3px 3px #bbb);
+}
+@keyframes andar{
+    from{
+        background-position: 0px;
+    }
+    to{
+        background-position: -1248px;
+    }
+}
+
+.fogo{
+    width: calc(1224px / 8);
+    height: 270px;
+    background-image: url(../img/fogo.png);
+    animation: queimar 900ms steps(8) infinite;
+}
+@keyframes queimar{
+    from{
+        background-position: 0px;
+    }
+    to{
+        background-position: 1224px;
+    }
+}
