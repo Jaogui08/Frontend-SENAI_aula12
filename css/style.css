@@ -1,14 +1,14 @@
+:root {
+    --tamanhoPersonagem: calc(1632px / 6);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+    padding: 20px;
 }
 .botao{
     background-color: blueviolet;
@@ -46,33 +46,68 @@ body{
     }
 }
 
-.personagem{
-    width: calc(1248px / 6);
-    height: 208px;
-    background-image: url(../img/personagem.png);
-    animation: andar 390ms steps(6) infinite;
+.personagem02{
+    width: var(--tamanhoPersonagem);
+    height: 430px;
+    background-image: url(../img/image.png);
+    animation: andar 390ms steps(6) infinite, correr 2s linear infinite;
     filter: drop-shadow(20px 3px 3px #bbb);
 }
+
 @keyframes andar{
     from{
         background-position: 0px;
     }
     to{
-        background-position: -1248px;
+        background-position: -1632px;
     }
 }
 
-.fogo{
-    width: calc(1224px / 8);
-    height: 270px;
-    background-image: url(../img/fogo.png);
-    animation: queimar 900ms steps(8) infinite;
-}
-@keyframes queimar{
+@keyframes correr {
     from{
-        background-position: 0px;
+        transform: translateX(0px);
     }
     to{
-        background-position: 1224px;
+        transform: translateX(calc(100vw - var(--tamanhoPersonagem)));
+    }
+}
+
+.card{
+    width: 30vw;
+    height: 100px;
+    background-color: #f1f1f1;
+    border: 1px #c2c2c2 solid;
+    border-radius: 10px;
+    padding: 5px;
+}
+.fade-in{
+    animation: mover 1s ease-out;
+}
+.containerCard{
+    display: flex;
+    justify-content: flex-end;
+}
+.fade-in-right{
+    animation: mover2 1s ease-out;
+}
+@keyframes mover {
+    from{
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes mover2 {
+    from{
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
     }
 }
